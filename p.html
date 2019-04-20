@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <audio id="audio" src="m.mp3" preload></audio>
+
+    <button id="btn1">1 都</button>
+    <button id="btn2">2 来</button>
+    <button id="btn3">3 米</button>
+    <button id="btn4">4 发</button>
+    <button id="btn5">5 收</button>
+    <button id="btn6">6 拉</button>
+    <button id="btn7">7 西</button>
+    <button id="btn8">8 都</button>
+    <p>
+        <!-- <input type="text" id="music_score_input" value="4321"> -->
+        <textarea id="music_score_input" rows="10">3210235556506788888765606550321343223203221 111 2110321067888876555321</textarea>
+        <!-- 粉刷匠 535353124325535353124321224432524325535353124321 -->
+        <!-- 海阔天空 3210235556506788888765606550321343223206550321343223203221 111 2110321067888876555321 -->
+        <button id="demo">演试</button>
+    </p>
+    <script type="text/javascript">
+    var demo = document.getElementById('demo');
+    var audio = document.getElementById('audio');
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    var btn3 = document.getElementById('btn3');
+    var btn4 = document.getElementById('btn4');
+    var btn5 = document.getElementById('btn5');
+    var btn6 = document.getElementById('btn6');
+    var btn7 = document.getElementById('btn7');
+    var btn8 = document.getElementById('btn8');
+    audio.playbackRate = 0.4;
+
+    var h;
+    btn1.onclick = function() {
+        if (h) {
+            clearTimeout(h);
+            h = null;
+        }
+        audio.currentTime = 0;
+        audio.play();
+        h = setTimeout(function() {
+            audio.pause();
+        }, 450);
+    };
+    btn2.onclick = function() {
+        if (h) {
+            clearTimeout(h);
+            h = null;
+        }
+        audio.currentTime = 0.24;
+        audio.play();
+        var t1 = new Date().getTime();
+        h = setTimeout(function() {
+            audio.pause();
+            var t2 = new Date().getTime();
+        }, 450);
+    };
+
+    btn3.onclick = function() {
+        if (h) {
+            clearTimeout(h);
+            h = null;
+        }
+        audio.currentTime = 0.418;
+        audio.play();
+        h = setTimeout(function() {
+            audio.pause();
+        }, 428);
+    };
+    btn4.onclick = function() {
+        if (h) {
+            clearTimeout(h);
+            h = null;
+        }
+        audio.currentTime = 0.58;
+        audio.play();
+        h = setTimeout(function() {
+            audio.pause();
+        }, 450);
+    };
+    btn5.onclick = function() {
+        if (h) {
+            clearTimeout(h);
+            h = null;
+        }
+        audio.currentTime = 0.79;
+        audio.play();
+        h = setTimeout(function() {
+            audio.pause();
+        }, 450);
+    };
+    btn6.onclick = function() {
+        if (h) {
+            clearTimeout(h);
+            h = null;
+        }
+        audio.currentTime = 0.97;
+        audio.play();
+        h = setTimeout(function() {
+            audio.pause();
+        }, 450);
+    };
+    btn7.onclick = function() {
+        if (h) {
+            clearTimeout(h);
+            h = null;
+        }
+        audio.currentTime = 1.15;
+        audio.play();
+        h = setTimeout(function() {
+            audio.pause();
+        }, 450);
+    };
+    btn8.onclick = function() {
+        if (h) {
+            clearTimeout(h);
+            h = null;
+        }
+        audio.currentTime = 1.34;
+        audio.play();
+        h = setTimeout(function() {
+            audio.pause();
+        }, 450);
+    };
+
+    audio.onloadeddata = function() {
+        demo.onclick = function() {
+            var music_score = document.getElementById('music_score_input').value;
+            music_score = music_score.split('');
+            demo.disabled = true;
+            var i = 0;
+            play();
+            function play() {
+                var n = music_score[i];
+                if(n>0) {
+                    console.log(n)
+                    var btn = document.getElementById('btn' + n);
+                    btn.click();
+                }
+                if (++i < music_score.length) {
+                    setTimeout(play, 500);
+                } else {
+                    demo.disabled = false;
+                }
+            }
+        };
+    }
+    </script>
+</body>
+
+</html>
